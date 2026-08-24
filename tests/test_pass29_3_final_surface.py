@@ -60,4 +60,4 @@ def test_pass293_version_markers():
     bill=(ROOT/'templates'/'bill.html').read_text(encoding='utf-8')
     assert '"build_pass": "31"' in app
     assert 'PASS 31' in launcher
-    assert 'style.css?v=31' in bill
+    assert 'style.css?v=33.2' in bill

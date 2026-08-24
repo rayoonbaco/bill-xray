@@ -19,9 +19,20 @@ PROVING_GROUND_BILLS = ("aca", "obbba")
 EVIDENCE_VERSION = "15.0-drawer-navigation"
 
 
+def _public_document_ref(anchor: dict) -> str:
+    """Return a public-safe source label without leaking local filesystem paths."""
+    source_url = str(anchor.get("source_url") or "").strip()
+    if "govinfo.gov" in source_url.lower():
+        return "Official GovInfo source"
+    if source_url:
+        return "Official source"
+    return "Canonical bill source snapshot"
+
+
 def evidence_payload(bill_id: str, anchor_id: str) -> dict:
     """Return a freshly verified, UI-safe evidence payload for one anchor."""
     anchor = resolve_anchor(bill_id, anchor_id)
+    public_document_ref = _public_document_ref(anchor)
     return {
         "schema_version": "15.0",
         "evidence_version": EVIDENCE_VERSION,
@@ -33,7 +44,7 @@ def evidence_payload(bill_id: str, anchor_id: str) -> dict:
         "kind": anchor.get("kind") or "",
         "identifier": anchor.get("identifier") or "",
         "location_marker": anchor.get("location_marker") or "",
-        "document_ref": anchor.get("document_ref") or "",
+        "document_ref": public_document_ref,
         "source_url": anchor.get("source_url") or "",
         "excerpt": anchor.get("excerpt") or "",
         "exact_text": anchor.get("exact_text") or "",
@@ -41,9 +52,9 @@ def evidence_payload(bill_id: str, anchor_id: str) -> dict:
         "text_sha256": anchor.get("text_sha256") or "",
         "source_navigation": {
             "official_url": anchor.get("source_url") or "",
-            "document_ref": anchor.get("document_ref") or "",
+            "document_ref": public_document_ref,
             "location_marker": anchor.get("location_marker") or "",
-            "note": "The exact anchored text above is re-verified against Bill X-Ray's canonical local source before display.",
+            "note": "The exact anchored text above is re-verified against Bill X-Ray's canonical source snapshot before display.",
         },
     }
 

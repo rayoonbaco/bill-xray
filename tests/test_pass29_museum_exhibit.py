@@ -38,4 +38,4 @@ def test_pass32_assets_are_current():
     home = (ROOT / 'templates' / 'index.html').read_text(encoding='utf-8')
     bill = (ROOT / 'templates' / 'bill.html').read_text(encoding='utf-8')
     assert '/static/style.css?v=31.6' in home
-    assert '/static/evidence_drawer.js?v=31' in bill
+    assert '/static/evidence_drawer.js?v=33.2' in bill

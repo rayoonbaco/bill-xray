@@ -91,4 +91,4 @@ def test_evidence_drawer_is_overlay_not_a_second_report_page():
 
 def test_bill_template_cache_busts_evidence_drawer_after_navigation_fix():
     template = (ROOT / "templates" / "bill.html").read_text(encoding="utf-8")
-    assert "/static/evidence_drawer.js?v=31" in template
+    assert "/static/evidence_drawer.js?v=33.2" in template
