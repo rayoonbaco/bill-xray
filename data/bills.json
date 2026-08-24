@@ -1,0 +1,98 @@
+[
+  {
+    "id": "aca",
+    "short_title": "Affordable Care Act",
+    "year": 2010,
+    "status": "Demo target",
+    "category": "Healthcare & Social Policy",
+    "exhibit_context": "Democratic-led enactment"
+  },
+  {
+    "id": "obbba",
+    "short_title": "One Big Beautiful Bill Act",
+    "year": 2025,
+    "status": "Demo target",
+    "category": "Taxes & Spending",
+    "exhibit_context": "Republican-led enactment"
+  },
+  {
+    "id": "dodd-frank",
+    "short_title": "Dodd-Frank Wall Street Reform and Consumer Protection Act",
+    "year": 2010,
+    "status": "Catalog",
+    "category": "Financial Regulation"
+  },
+  {
+    "id": "arp",
+    "short_title": "American Rescue Plan Act",
+    "year": 2021,
+    "status": "Catalog",
+    "category": "Emergency / Crisis"
+  },
+  {
+    "id": "ira",
+    "short_title": "Inflation Reduction Act",
+    "year": 2022,
+    "status": "Demo target",
+    "category": "Taxes, Energy & Health",
+    "exhibit_context": "Democratic-led enactment",
+    "bill_number": "H.R. 5376",
+    "congress": 117,
+    "law_number": "Public Law 117-169",
+    "implementation_keyword": "Inflation Reduction Act"
+  },
+  {
+    "id": "caa-2023",
+    "short_title": "Consolidated Appropriations Act, 2023",
+    "year": 2022,
+    "status": "Catalog",
+    "category": "Annual Omnibus / Appropriations"
+  },
+  {
+    "id": "patriot",
+    "short_title": "USA PATRIOT Act",
+    "year": 2001,
+    "status": "Catalog",
+    "category": "National Security & Surveillance"
+  },
+  {
+    "id": "tarp",
+    "short_title": "Emergency Economic Stabilization Act / TARP",
+    "year": 2008,
+    "status": "Catalog",
+    "category": "Emergency / Crisis"
+  },
+  {
+    "id": "tcja",
+    "short_title": "Tax Cuts and Jobs Act",
+    "year": 2017,
+    "status": "Demo target",
+    "category": "Taxes & Spending",
+    "exhibit_context": "Republican-led enactment",
+    "bill_number": "H.R. 1",
+    "congress": 115,
+    "law_number": "Public Law 115-97",
+    "implementation_keyword": "Tax Cuts and Jobs Act"
+  },
+  {
+    "id": "cares",
+    "short_title": "CARES Act",
+    "year": 2020,
+    "status": "Catalog",
+    "category": "Emergency / Crisis"
+  },
+  {
+    "id": "iija",
+    "short_title": "Infrastructure Investment and Jobs Act",
+    "year": 2021,
+    "status": "Catalog",
+    "category": "Infrastructure & Energy"
+  },
+  {
+    "id": "chips",
+    "short_title": "CHIPS and Science Act",
+    "year": 2022,
+    "status": "Catalog",
+    "category": "Technology & Industry"
+  }
+]

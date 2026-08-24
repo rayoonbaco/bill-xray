@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bill>
+  <section>
+    <header>SECTION 1. SHORT TITLE.</header>
+    <text>This Act may be cited as the Test XML Act.</text>
+  </section>
+  <section>
+    <header>SEC. 2. DEMONSTRATION.</header>
+    <text>The Secretary shall establish a demonstration program.</text>
+  </section>
+</bill>

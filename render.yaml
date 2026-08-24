@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: bill-xray
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: false
+    envVars:
+      - key: BILL_XRAY_PUBLIC_MUSEUM
+        value: "1"

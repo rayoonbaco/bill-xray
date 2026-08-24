@@ -1,0 +1,165 @@
+{
+  "bill_id": "ira",
+  "state": "complete",
+  "current_stage": null,
+  "current_label": null,
+  "current_stage_index": null,
+  "current_stage_elapsed_seconds": null,
+  "completed_stages": 19,
+  "total_stages": 19,
+  "elapsed_seconds": 20.25,
+  "stages": [
+    {
+      "key": "ingest",
+      "label": "Ingest selected official GovInfo bill text",
+      "status": "complete",
+      "elapsed_seconds": 0.031,
+      "summary": "17,664 lines",
+      "error": null
+    },
+    {
+      "key": "segment",
+      "label": "Segment titles, subtitles, chapters, and sections",
+      "status": "complete",
+      "elapsed_seconds": 0.047,
+      "summary": "268 structural blocks",
+      "error": null
+    },
+    {
+      "key": "anchors",
+      "label": "Build exact citation anchors",
+      "status": "complete",
+      "elapsed_seconds": 0.344,
+      "summary": "268 anchors",
+      "error": null
+    },
+    {
+      "key": "translate",
+      "label": "Run plain-English translator",
+      "status": "complete",
+      "elapsed_seconds": 1.203,
+      "summary": "161 translation packets",
+      "error": null
+    },
+    {
+      "key": "money",
+      "label": "Extract money mechanics",
+      "status": "complete",
+      "elapsed_seconds": 1.062,
+      "summary": "147 findings",
+      "error": null
+    },
+    {
+      "key": "power",
+      "label": "Extract power and authority mechanics",
+      "status": "complete",
+      "elapsed_seconds": 1.063,
+      "summary": "121 findings",
+      "error": null
+    },
+    {
+      "key": "barrel",
+      "label": "Run Barrel Scan candidate detector",
+      "status": "complete",
+      "elapsed_seconds": 1.062,
+      "summary": "147 candidates",
+      "error": null
+    },
+    {
+      "key": "topics",
+      "label": "Route provisions to dynamic topic experts",
+      "status": "complete",
+      "elapsed_seconds": 2.078,
+      "summary": "161 reviews",
+      "error": null
+    },
+    {
+      "key": "left",
+      "label": "Build Left Lens packets",
+      "status": "complete",
+      "elapsed_seconds": 0.844,
+      "summary": "161 candidates",
+      "error": null
+    },
+    {
+      "key": "right",
+      "label": "Build Right Lens packets",
+      "status": "complete",
+      "elapsed_seconds": 0.86,
+      "summary": "161 candidates",
+      "error": null
+    },
+    {
+      "key": "advocacy",
+      "label": "Attach source-bound generic interpretations",
+      "status": "complete",
+      "elapsed_seconds": 0.062,
+      "summary": "12 matched pairs",
+      "error": null
+    },
+    {
+      "key": "skeptic",
+      "label": "Run Investigative Skeptic",
+      "status": "complete",
+      "elapsed_seconds": 0.031,
+      "summary": "161 packets",
+      "error": null
+    },
+    {
+      "key": "referee",
+      "label": "Run Neutral Referee",
+      "status": "complete",
+      "elapsed_seconds": 0.063,
+      "summary": "161 decisions",
+      "error": null
+    },
+    {
+      "key": "synthesis",
+      "label": "Build five-panel synthesis",
+      "status": "complete",
+      "elapsed_seconds": 3.562,
+      "summary": "15 public claims; verified",
+      "error": null
+    },
+    {
+      "key": "external",
+      "label": "Pull official external evidence",
+      "status": "complete",
+      "elapsed_seconds": 7.703,
+      "summary": "CBO=found; JCT=unavailable; USAspending=found",
+      "error": null
+    },
+    {
+      "key": "consequence",
+      "label": "Build consequence evidence context",
+      "status": "complete",
+      "elapsed_seconds": 0.0,
+      "summary": "coverage confidence 0.660",
+      "error": null
+    },
+    {
+      "key": "red_team",
+      "label": "Run political-bias and selection-quality red team",
+      "status": "complete",
+      "elapsed_seconds": 0.031,
+      "summary": "pass_with_warnings; score 0.950",
+      "error": null
+    },
+    {
+      "key": "audit",
+      "label": "Run hallucination and citation audit",
+      "status": "complete",
+      "elapsed_seconds": 0.188,
+      "summary": "pass; 15/15 citations reverified",
+      "error": null
+    },
+    {
+      "key": "challenge",
+      "label": "Run hostile context and comprehension challenge",
+      "status": "complete",
+      "elapsed_seconds": 0.0,
+      "summary": "pass; score 1.000",
+      "error": null
+    }
+  ]
+}

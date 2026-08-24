@@ -1,0 +1,128 @@
+{
+  "schema_version": "31.6.1",
+  "bill_id": "ira",
+  "generated_at": "2026-08-24T17:40:04.196947+00:00",
+  "identity": {
+    "bill_number": "H.R. 5376",
+    "title": "Inflation Reduction Act",
+    "congress": 117,
+    "law_number": "Public Law 117-169"
+  },
+  "lanes": {
+    "cbo": {
+      "provider": "CBO",
+      "status": "found",
+      "query": "H.R. 5376 Inflation Reduction Act",
+      "search_url": "https://www.cbo.gov/search?search_api_fulltext=H.R.+5376+Inflation+Reduction+Act",
+      "results": [
+        {
+          "title": "Estimated Budgetary Effects of H.R. 5376, the Inflation Reduction Act of 2022",
+          "url": "https://www.cbo.gov/publication/58366",
+          "source": "CBO",
+          "date": "Wed, 03 Aug 2022 14:42:00 -0400",
+          "identity_confidence": 0.95,
+          "identity_basis": [
+            "exact bill number in CBO title",
+            "title match: Inflation Reduction Act"
+          ]
+        },
+        {
+          "title": "Letter to the Honorable Chuck Schumer regarding H.R. 5376, the Inflation Reduction Act of 2022",
+          "url": "https://www.cbo.gov/publication/58367",
+          "source": "CBO",
+          "date": "Sat, 06 Aug 2022 18:02:00 -0400",
+          "identity_confidence": 0.95,
+          "identity_basis": [
+            "exact bill number in CBO title",
+            "title match: Inflation Reduction Act"
+          ]
+        }
+      ],
+      "selected": {
+        "title": "Estimated Budgetary Effects of H.R. 5376, the Inflation Reduction Act of 2022",
+        "url": "https://www.cbo.gov/publication/58366",
+        "source": "CBO",
+        "date": "Wed, 03 Aug 2022 14:42:00 -0400",
+        "identity_confidence": 0.95,
+        "identity_basis": [
+          "exact bill number in CBO title",
+          "title match: Inflation Reduction Act"
+        ]
+      },
+      "diagnostics": [
+        {
+          "method": "predictable_bill_url",
+          "url": "https://www.cbo.gov/cost-estimates/hr/5376",
+          "status": "network_or_response_failure",
+          "detail": "HTTP Error 403: Forbidden"
+        },
+        {
+          "method": "congress_xml",
+          "url": "https://www.cbo.gov/rss/117congress-cost-estimates.xml",
+          "status": "ok",
+          "candidate_count": 1191
+        }
+      ],
+      "note": "Official CBO material matched by bill identity. CBO estimates are external context, not statutory text."
+    },
+    "jct": {
+      "provider": "JCT",
+      "status": "unavailable",
+      "query": "H.R. 5376 Inflation Reduction Act",
+      "search_url": "https://www.jct.gov/?s=H.R.+5376+Inflation+Reduction+Act",
+      "results": [],
+      "note": "HTTP Error 403: Forbidden"
+    },
+    "usaspending": {
+      "provider": "USAspending",
+      "status": "found",
+      "keyword": "Inflation Reduction Act",
+      "query_url": "https://www.usaspending.gov/search",
+      "total_related_obligations": 51050203141.85,
+      "results": [
+        {
+          "time_period": {
+            "fiscal_year": "2022"
+          },
+          "amount": 27923950.0
+        },
+        {
+          "time_period": {
+            "fiscal_year": "2023"
+          },
+          "amount": -1104559148.15
+        },
+        {
+          "time_period": {
+            "fiscal_year": "2024"
+          },
+          "amount": 34245420922.660004
+        },
+        {
+          "time_period": {
+            "fiscal_year": "2025"
+          },
+          "amount": 17711220431.34
+        },
+        {
+          "time_period": {
+            "fiscal_year": "2026"
+          },
+          "amount": 170196986.0
+        },
+        {
+          "time_period": {
+            "fiscal_year": "2027"
+          },
+          "amount": 0.0
+        }
+      ],
+      "note": "Keyword-correlated federal award activity. This is implementation context, not proof that an award was caused by this bill."
+    }
+  },
+  "rules": [
+    "External evidence never rewrites or substitutes for the statutory text.",
+    "CBO/JCT estimates describe expected budget or revenue effects when a matching official estimate is available.",
+    "USAspending keyword matches are contextual award activity, not causal attribution to the bill."
+  ]
+}

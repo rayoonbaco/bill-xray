@@ -1,0 +1,143 @@
+{
+  "schema_version": "31.6.1",
+  "bill_id": "obbba",
+  "generated_at": "2026-08-24T21:44:28.846396+00:00",
+  "identity": {
+    "bill_number": "H.R. 1",
+    "title": "One Big Beautiful Bill Act",
+    "congress": 119,
+    "law_number": "Public Law 119-21"
+  },
+  "lanes": {
+    "cbo": {
+      "provider": "CBO",
+      "status": "found",
+      "query": "H.R. 1 One Big Beautiful Bill Act",
+      "search_url": "https://www.cbo.gov/search?search_api_fulltext=H.R.+1+One+Big+Beautiful+Bill+Act",
+      "results": [
+        {
+          "title": "Estimated Budgetary Effects of H.R. 1, the One Big Beautiful Bill Act",
+          "url": "https://www.cbo.gov/publication/61461",
+          "source": "CBO",
+          "date": "Wed, 04 Jun 2025 10:00:00 -0400",
+          "identity_confidence": 0.95,
+          "identity_basis": [
+            "exact bill number in CBO title",
+            "title match: One Big Beautiful Bill Act"
+          ]
+        },
+        {
+          "title": "Estimated Budgetary Effects of an Amendment in the Nature of a Substitute to H.R. 1, the One Big Beautiful Bill Act, Relative to CBO&#039;s January 2025 Baseline",
+          "url": "https://www.cbo.gov/publication/61534",
+          "source": "CBO",
+          "date": "Sun, 29 Jun 2025 10:31:00 -0400",
+          "identity_confidence": 0.95,
+          "identity_basis": [
+            "exact bill number in CBO title",
+            "title match: One Big Beautiful Bill Act"
+          ]
+        },
+        {
+          "title": "Estimated Budgetary Effects of an Amendment in the Nature of a Substitute to H.R. 1, the One Big Beautiful Bill Act, Relative to the Budget Enforcement Baseline for Consideration in the Senate",
+          "url": "https://www.cbo.gov/publication/61533",
+          "source": "CBO",
+          "date": "Sat, 28 Jun 2025 23:29:00 -0400",
+          "identity_confidence": 0.95,
+          "identity_basis": [
+            "exact bill number in CBO title",
+            "title match: One Big Beautiful Bill Act"
+          ]
+        },
+        {
+          "title": "Estimated Effects on the Number of Uninsured People in 2034 Resulting From Policies Incorporated Within CBO’s Baseline Projections and H.R. 1, the One Big Beautiful Bill Act",
+          "url": "https://www.cbo.gov/publication/61463",
+          "source": "CBO",
+          "date": "Wed, 04 Jun 2025 14:00:00 -0400",
+          "identity_confidence": 0.95,
+          "identity_basis": [
+            "exact bill number in CBO title",
+            "title match: One Big Beautiful Bill Act"
+          ]
+        },
+        {
+          "title": "H.R. 1, One Big Beautiful Bill Act (Dynamic Estimate)",
+          "url": "https://www.cbo.gov/publication/61486",
+          "source": "CBO",
+          "date": "Tue, 17 Jun 2025 14:00:00 -0400",
+          "identity_confidence": 0.95,
+          "identity_basis": [
+            "exact bill number in CBO title",
+            "title match: One Big Beautiful Bill Act"
+          ]
+        }
+      ],
+      "selected": {
+        "title": "Estimated Budgetary Effects of H.R. 1, the One Big Beautiful Bill Act",
+        "url": "https://www.cbo.gov/publication/61461",
+        "source": "CBO",
+        "date": "Wed, 04 Jun 2025 10:00:00 -0400",
+        "identity_confidence": 0.95,
+        "identity_basis": [
+          "exact bill number in CBO title",
+          "title match: One Big Beautiful Bill Act"
+        ]
+      },
+      "diagnostics": [
+        {
+          "method": "predictable_bill_url",
+          "url": "https://www.cbo.gov/cost-estimates/hr/1",
+          "status": "network_or_response_failure",
+          "detail": "HTTP Error 403: Forbidden"
+        },
+        {
+          "method": "congress_xml",
+          "url": "https://www.cbo.gov/rss/119congress-cost-estimates.xml",
+          "status": "ok",
+          "candidate_count": 1146
+        }
+      ],
+      "note": "Official CBO material matched by bill identity. CBO estimates are external context, not statutory text."
+    },
+    "jct": {
+      "provider": "JCT",
+      "status": "unavailable",
+      "query": "H.R. 1 One Big Beautiful Bill Act",
+      "search_url": "https://www.jct.gov/?s=H.R.+1+One+Big+Beautiful+Bill+Act",
+      "results": [],
+      "note": "HTTP Error 403: Forbidden"
+    },
+    "usaspending": {
+      "provider": "USAspending",
+      "status": "found",
+      "keyword": "One Big Beautiful Bill Act",
+      "query_url": "https://www.usaspending.gov/search",
+      "total_related_obligations": 213722475.83,
+      "results": [
+        {
+          "time_period": {
+            "fiscal_year": "2025"
+          },
+          "amount": 166560.0
+        },
+        {
+          "time_period": {
+            "fiscal_year": "2026"
+          },
+          "amount": 213555915.82999998
+        },
+        {
+          "time_period": {
+            "fiscal_year": "2027"
+          },
+          "amount": 0.0
+        }
+      ],
+      "note": "Keyword-correlated federal award activity. This is implementation context, not proof that an award was caused by this bill."
+    }
+  },
+  "rules": [
+    "External evidence never rewrites or substitutes for the statutory text.",
+    "CBO/JCT estimates describe expected budget or revenue effects when a matching official estimate is available.",
+    "USAspending keyword matches are contextual award activity, not causal attribution to the bill."
+  ]
+}

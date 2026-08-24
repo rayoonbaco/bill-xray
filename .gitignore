@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# Windows / editor noise
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Bill X-Ray local development residue
+_patch_backups/
+payload/
+GRANDMA_PYTEST_OUTPUT.txt
+PASS32_2_REVALIDATION_REPORT.txt
+
+# Runtime-only fresh-bill/search residue (curated showcase artifacts remain tracked)
+data/search_results/
+data/build_status/gpo-*.json
+data/source_documents/gpo-*.txt
+data/ingested/gpo-*.json
+data/segments/gpo-*.json
+data/citation_anchors/gpo-*.json
+data/translations/gpo-*.json
+data/money/gpo-*.json
+data/power/gpo-*.json
+data/barrel_scan/gpo-*.json
+data/topic_reviews/gpo-*.json
+data/left_lens/gpo-*.json
+data/right_lens/gpo-*.json
+data/skeptic/gpo-*.json
+data/referee/gpo-*.json
+data/synthesis/gpo-*.json
+data/analyses/gpo-*.json
+data/external_evidence/gpo-*.json
+data/consequence/gpo-*.json
+data/red_team/gpo-*.json
+data/citation_audit/gpo-*.json
+data/challenge/gpo-*.json
+data/end_to_end/gpo-*.json
+data/analysis_cache/gpo-*.json

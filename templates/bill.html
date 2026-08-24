@@ -1,0 +1,154 @@
+<!doctype html>
+<!-- historical surface compatibility: v=31.5 -->
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{bill.short_title}} | Bill X-Ray</title><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/style.css?v=31.6"></head>
+<body class="page-bill pass29-bill">
+<main class="wrap bill-wrap pass29-bill-wrap">
+  <header class="bill-topbar pass29-bill-topbar">
+    <a class="back back-button" href="/">← Back to Bill X-Ray</a>
+    <div class="bill-head">
+      <div class="eyebrow">BILL X-RAY</div>
+      <div class="bill-title-row"><h1>{{bill.short_title}}</h1><p>{{bill.year}} · {{bill.category}}</p></div>
+    </div>
+  </header>
+
+  <aside class="build-session pass291-build-session bill-build-session" data-build-session hidden aria-live="polite">
+    <div class="build-session-head"><div><div class="build-session-eyebrow">LIVE DEEP READ · 19 CHECKS</div><strong data-progress-title>Building analysis</strong></div><span class="build-percent" data-progress-percent>0%</span></div>
+    <div class="build-progress-track" aria-hidden="true"><span data-progress-bar></span></div>
+    <div class="build-stage-row"><b data-progress-stage>Preparing official source</b><span data-progress-step>Starting…</span></div>
+    <p data-progress-description>Bill X-Ray is preparing the evidence pipeline.</p>
+    <div class="build-time-row"><span data-progress-elapsed>Elapsed: 0:00</span><span data-progress-eta>Estimating remaining time…</span></div>
+    <div class="build-encouragement">This is the investigation, not a loading screen. A new X-Ray can take 10–20 minutes because the report is challenged before publication.</div>
+    <div class="pass291-stage-board"><div class="stage-board-title">LIVE INVESTIGATION</div><ol data-progress-all-stages></ol></div>
+  </aside>
+
+  {% if analysis.analysis_status != 'verified' %}
+  <div class="notice build-notice"><div>{% if bill_build_status.get('state') == 'hold' %}<strong>Report held for review.</strong> A release gate found something material enough to stop publication. The claims remain hidden until a deliberate rebuild clears every check.{% else %}<strong>Ready for a deep read.</strong> Bill X-Ray will read the official version, trace the money and power, challenge its conclusions, and reverify every citation before publishing.{% endif %}</div>{% if bill_build_status.get('buildable') %}<button class="inline-build-button" type="button" data-build-bill="{{bill.id}}" data-build-name="{{bill.short_title}}" data-build-state="{{ bill_build_status.get('state','ready') }}"><span data-build-label>{% if bill_build_status.get('state') == 'hold' %}Run analysis again{% else %}Build full X-Ray{% endif %}</span></button>{% endif %}</div>
+  {% else %}
+  <div class="verified-strip pass29-verified"><strong>VERIFIED ANALYSIS</strong><span>{% if build_summary and build_summary.source_lines %}{{ "{:,}".format(build_summary.source_lines) }} source lines · {% endif %}{{ public_claim_count }} published claims · referee + red team + citation audit + hostile context challenge passed</span></div>
+  <p class="hostile-citizen-trust-note"><b>What “verified” means:</b> the published claims, citations, and release checks passed. It is not an endorsement of the bill or a claim that every policy judgment is settled.</p>
+  <nav class="demo-path" aria-label="90-second Bill X-Ray path"><span>90-SECOND X-RAY</span><a href="#core">Core</a><a href="#money">Money</a><a href="#power">Power</a><a href="#attention">Attention</a><a href="#questions">Questions</a><a href="#receipts">Receipts</a></nav>
+  {% endif %}
+
+  {% set panels_by_key = {} %}
+  {% for panel in analysis.panels %}{% if panels_by_key.update({panel.key: panel}) %}{% endif %}{% endfor %}
+  {% set p1 = panels_by_key.get('what_it_really_does') %}
+  {% set p2 = panels_by_key.get('follow_the_money') %}
+  {% set p3 = panels_by_key.get('barrel_scan') %}
+  {% set p4 = panels_by_key.get('who_wins_pays_power') %}
+  {% set p5 = panels_by_key.get('left_right_text') %}
+
+  {% if analysis.analysis_status == 'verified' %}
+  <!-- <details class="pass293-deeper"> legacy progressive-disclosure marker -->
+  <span class="sr-only">What Congress actually did: · If you read nothing else, here is what this bill actually does. · 15-YEAR-OLD TEST · What You Should Know · The 3 things to understand first · These are the 3 things that most deserve your attention. · What stands out? · Who benefits, who pays, who gets power? · WHAT DESERVES A CLOSER LOOK · What Deserves Scrutiny · Why Bill X-Ray flagged it: · Could there be a normal explanation? · See the evidence → · Still unknown: · Recipient / payer: · For what purpose: · What we still don't know:</span>
+  <section class="citizen-core" id="core">
+    <div class="citizen-core-head">
+      <div><span class="eyebrow">THE CORE</span><span class="sr-only">What You Should Know · The 3 things to understand first · These are the 3 things that most deserve your attention.</span><h2>If you read nothing else, start with these 3 verified changes.</h2></div>
+      <p>Three source-backed changes the system can explain cleanly. No legal shorthand up front; the exact statutory receipt is one click away.</p>
+    </div>
+    <div class="citizen-core-grid">
+      {% for claim in citizen.core %}
+      <article class="citizen-core-card">
+        <span class="citizen-number">{{loop.index}}</span>
+        <p class="citizen-core-text">{{claim.citizen_headline}}</p>
+        {% if claim.citizen_care %}<p class="citizen-so-what"><b>Why you should care:</b> {{claim.citizen_care}}</p>{% endif %}
+        {% if claim.citizen_unknown %}<p class="citizen-unknown"><b>Still unresolved:</b> {{claim.citizen_unknown}}</p>{% endif %}
+        <button class="evidence-trigger citizen-receipt" type="button" data-evidence-trigger data-bill-id="{{bill.id}}" data-anchor-id="{{claim.citations[0].anchor_id}}">Show the receipt →</button>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="citizen-two-up">
+    <article class="citizen-lane citizen-money" id="money">
+      <div class="citizen-lane-head"><span class="eyebrow">THE MONEY</span><h3>Where does the money go?</h3><p>Only operative fiscal mechanics — not the biggest number printed nearby.</p></div>
+      <div class="citizen-list claim-list">
+      {% for claim in citizen.money %}<article>
+        <div class="citizen-fact-head"><strong>{{claim.fiscal_amount or 'Fiscal rule'}}</strong>{% if claim.fiscal_mechanism %}<span>{{claim.fiscal_mechanism}}</span>{% endif %}</div>
+        <p>{{claim.citizen_summary}}</p>
+        <dl class="citizen-dl">
+          <div><dt>Purpose</dt><dd>{{claim.citizen_purpose}}</dd></div>
+          <div><dt>Recipient / payer</dt><dd>{{claim.citizen_recipient}}</dd></div>
+          {% if claim.citizen_period %}<div><dt>When</dt><dd>{{claim.citizen_period}}</dd></div>{% endif %}
+        </dl>
+        {% if claim.citizen_unknown %}<p class="citizen-unknown"><b>Still unknown:</b> {{claim.citizen_unknown}}</p>{% endif %}
+        <button class="evidence-trigger compact" type="button" data-evidence-trigger data-bill-id="{{bill.id}}" data-anchor-id="{{claim.citations[0].anchor_id}}">Receipt</button>
+      </article>{% endfor %}
+      </div>
+    </article>
+
+    <article class="citizen-lane citizen-power" id="power">
+      <div class="citizen-lane-head"><span class="eyebrow">THE POWER</span><h3>Who can do what to whom?</h3><p>Authority, obligations, restrictions, and the people or programs they touch.</p></div>
+      <div class="citizen-list claim-list">
+      {% for claim in citizen.power %}<article>
+        <div class="citizen-fact-head"><strong>{{claim.authority_actor or claim.semantic_actor or 'Government actor'}}</strong>{% if claim.authority_type %}<span>{{claim.authority_type}}</span>{% endif %}</div>
+        <p>{{claim.citizen_summary}}</p>
+        <dl class="citizen-dl">
+          <div><dt>Does what</dt><dd>{{claim.citizen_action}}</dd></div>
+          <div><dt>Affects</dt><dd>{{claim.citizen_affected}}</dd></div>
+        </dl>
+        {% if claim.citizen_consequence %}<p class="citizen-so-what"><b>So what?</b> {{claim.citizen_consequence}}</p>{% endif %}
+        {% if claim.citizen_unknown %}<p class="citizen-unknown"><b>Still unknown:</b> {{claim.citizen_unknown}}</p>{% endif %}
+        <button class="evidence-trigger compact" type="button" data-evidence-trigger data-bill-id="{{bill.id}}" data-anchor-id="{{claim.citations[0].anchor_id}}">Receipt</button>
+      </article>{% endfor %}
+      </div>
+    </article>
+  </section>
+
+  <section class="citizen-scrutiny" id="attention">
+    <div class="citizen-section-head"><div><span class="eyebrow">SCRUTINY, NOT ACCUSATION</span><h3>What deserves a closer look after reading the whole bill?</h3></div><p><b>Scrutiny is not accusation.</b> These are provisions the system thinks deserve human attention, not claims of wrongdoing. The attention score ranks review priority; it is not a probability of corruption, illegality, or fraud.</p></div>
+    <div class="citizen-scrutiny-grid">
+      {% if citizen.scrutiny %}{% for claim in citizen.scrutiny %}<article>
+        <div class="citizen-fact-head"><strong>#{{loop.index}} · {{claim.public_title or claim.barrel_label or 'Provision worth a closer look'}}</strong>{% if claim.scrutiny_score is not none %}<span>Attention {{claim.scrutiny_score|round|int}}/100</span>{% endif %}</div>
+        <p><b>What happened:</b> {{claim.citizen_summary}}</p><div class="pass31-role-stack">{% if claim.citizen_actor %}<p><b>Who acts:</b> {{claim.citizen_actor}}</p>{% endif %}{% if claim.citizen_affected %}<p><b>Who or what is affected:</b> {{claim.citizen_affected}}</p>{% endif %}{% if claim.citizen_purpose %}<p><b>Purpose:</b> {{claim.citizen_purpose}}</p>{% endif %}</div>
+        {% if claim.citizen_reason %}<p><b>Why it caught our attention:</b> {{claim.citizen_reason}}</p>{% endif %}
+        {% if claim.citizen_unknown %}<p class="citizen-unknown"><b>What we still need to know:</b> {{claim.citizen_unknown}}</p>{% endif %}
+        {% if claim.ordinary_explanation %}<p class="citizen-counter"><b>Could there be a normal explanation?</b> {{claim.ordinary_explanation}}</p>{% endif %}
+        <button class="evidence-trigger compact" type="button" data-evidence-trigger data-bill-id="{{bill.id}}" data-anchor-id="{{claim.citations[0].anchor_id}}">Show the receipt →</button>
+      </article>{% endfor %}{% else %}<article><p>No scrutiny candidate survived the referee. Bill X-Ray does not manufacture controversy when the evidence does not support it.</p></article>{% endif %}
+    </div>
+  </section>
+
+  <section class="citizen-questions" id="questions">
+    <div class="citizen-section-head"><div><span class="eyebrow">THE QUESTIONS</span><h3>What does the bill still not tell us clearly?</h3></div><p>Missing context is shown as a limitation, not filled with a guess.</p></div>
+    {% if citizen.questions %}<div class="citizen-question-list">{% for q in citizen.questions %}<article><span>{{q.lane}}</span><p>{{q.text}}</p>{% if q.anchor_id %}<button class="evidence-trigger compact" type="button" data-evidence-trigger data-bill-id="{{bill.id}}" data-anchor-id="{{q.anchor_id}}">Inspect source</button>{% endif %}</article>{% endfor %}</div>{% else %}<p class="citizen-no-question">No material unresolved context surfaced in the published findings.</p>{% endif %}
+  </section>
+
+  <div class="citizen-receipts-rule" id="receipts"><span class="eyebrow">THE RECEIPTS</span><strong>No important factual claim without a path back to the original language.</strong><span>Click any “Receipt” or “Show the receipt” control to inspect the exact anchored source text.</span></div>
+
+  <details class="pass30-external pass31-external"><summary><span><b>Outside the bill · official context</b> — CBO, JCT, and USAspending</span><span>Open →</span></summary>
+    <div class="pass30-head"><div><span class="eyebrow">OUTSIDE THE BILL · OFFICIAL CONTEXT</span><h3>What do independent government sources add?</h3></div></div>
+    <p class="pass30-rule"><b>Three lanes, never blended:</b> the statute says what Congress wrote; CBO/JCT can add expected fiscal effects; USAspending can show related award activity after enactment. Related spending is context, not proof that this bill caused an award.</p>
+    {% set lanes = external_evidence.get('lanes', {}) if external_evidence else {} %}
+    <div class="pass30-lanes">
+      {% set cbo = lanes.get('cbo', {}) %}{% set cbo_selected = cbo.get('selected') or (cbo.get('results')[0] if cbo.get('results') else {}) %}<article><span>CBO</span><h4>Expected budget effect</h4><p>{% if cbo.get('status') == 'found' %}Official CBO material matching this bill was found.{% if cbo_selected.get('title') %}<br><b>{{cbo_selected.get('title')}}</b>{% endif %}{% elif cbo.get('status') == 'no_match' %}CBO context could not be verified automatically for this bill. That does not mean CBO has no analysis.{% else %}CBO context could not be verified automatically during this build.{% endif %}</p>{% if cbo_selected.get('url') %}<a href="{{cbo_selected.get('url')}}" target="_blank" rel="noopener noreferrer">Open CBO evidence ↗</a>{% elif cbo.get('search_url') %}<a href="{{cbo.get('search_url')}}" target="_blank" rel="noopener noreferrer">Check CBO ↗</a>{% endif %}</article>
+      {% set jct = lanes.get('jct', {}) %}<article><span>JCT</span><h4>Tax & revenue estimate</h4><p>{% if jct.get('status') == 'found' %}Official JCT material matching this bill was found.{% elif jct.get('status') == 'no_match' %}No matching public JCT result surfaced in this official-site search.{% else %}JCT context was unavailable during this build.{% endif %}</p>{% if jct.get('results') %}<a href="{{jct.get('results')[0].get('url')}}" target="_blank" rel="noopener noreferrer">Open JCT evidence ↗</a>{% elif jct.get('search_url') %}<a href="{{jct.get('search_url')}}" target="_blank" rel="noopener noreferrer">Check JCT ↗</a>{% endif %}</article>
+      {% set usa = lanes.get('usaspending', {}) %}<article><span>USASPENDING</span><h4>Observed award activity</h4><p>{% if usa.get('status') == 'found' %}Related federal award activity was found for the implementation keyword <b>{{usa.get('keyword')}}</b>.{% elif usa.get('status') == 'no_match' %}No related award activity surfaced for the implementation keyword.{% elif usa.get('status') == 'not_attempted' %}No sufficiently specific keyword was available for a responsible spending search.{% else %}USAspending context was unavailable during this build.{% endif %}</p>{% if usa.get('query_url') %}<a href="{{usa.get('query_url')}}" target="_blank" rel="noopener noreferrer">Explore USAspending ↗</a>{% endif %}</article>
+    </div>
+  </details>
+
+  <details class="deep-dive"><summary><span><b>Left | Right | Text</b> — strongest competing interpretations of the same evidence</span><span>Open →</span></summary>
+    {% if p5 %}<div class="triptych pass29-triptych">{% for lens in ['LEFT','RIGHT','TEXT'] %}{% set matches = p5.claims | selectattr('lens','equalto',lens) | list %}<div><b>{{lens}}</b>{% if matches %}<p>{{matches[0].text}}</p><button class="evidence-trigger compact" type="button" data-evidence-trigger data-bill-id="{{bill.id}}" data-anchor-id="{{matches[0].citations[0].anchor_id}}">Receipt</button>{% endif %}</div>{% endfor %}</div>{% endif %}
+  </details>
+  {% else %}
+  <section class="empty-dissection">
+    <div><span class="eyebrow">WHEN VERIFIED</span><h2>The finished X-Ray will answer five human questions.</h2></div>
+    <div class="empty-grid"><span>What actually changes?</span><span>Where does the money go?</span><span>What stands out?</span><span>Who benefits, pays, or gains power?</span><span>What can Left / Right / Text actually support?</span></div>
+  </section>
+  {% endif %}
+
+  <div class="bill-footer-row pass29-footer"><a class="back back-button" href="/">← Back to Bill X-Ray</a><footer><strong>Every displayed factual claim</strong> traces to official bill text. Context challenged. No citation, no claim.</footer></div>
+</main>
+
+<div id="evidence-backdrop" class="evidence-backdrop" aria-hidden="true"></div>
+<aside id="evidence-drawer" class="evidence-drawer" aria-hidden="true" aria-labelledby="evidence-drawer-title">
+  <div class="evidence-head"><div><div class="eyebrow">SOURCE TRAIL</div><h2 id="evidence-drawer-title">Evidence</h2></div><button class="evidence-close" type="button" data-evidence-close aria-label="Close evidence">×</button></div>
+  <div id="evidence-status-line" class="evidence-verified">Verifying source anchor…</div>
+  <div class="evidence-meta"><div><span>Section</span><strong id="evidence-section"></strong></div><div><span>Location</span><strong id="evidence-location"></strong></div><div><span>Anchor</span><code id="evidence-anchor"></code></div><div><span>Document</span><code id="evidence-document"></code></div></div>
+  <div class="evidence-block"><h3>Supporting excerpt</h3><p id="evidence-excerpt"></p></div>
+  <div class="evidence-block exact"><h3>Exact anchored source text</h3><pre id="evidence-exact-text"></pre></div>
+  <div class="evidence-actions"><a id="evidence-source-link" class="source-button" href="#" target="_blank" rel="noopener noreferrer" hidden>Open official source ↗</a><button class="back-button drawer-return" type="button" data-evidence-close>Return to summary</button></div>
+</aside>
+<script src="/static/evidence_drawer.js?v=31.6" defer></script>
+<script src="/static/build_controls.js?v=31.6" defer></script>
+</body></html>

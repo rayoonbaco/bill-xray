@@ -1,0 +1,20 @@
+{
+  "bills": [
+    {
+      "id": "gpo-118hr171ih",
+      "short_title": "H.R. 171",
+      "year": 2023,
+      "status": "Search result",
+      "category": "H.R. 171 · Introduced in House",
+      "package_id": "BILLS-118hr171ih",
+      "congress": 118,
+      "bill_number": "H.R. 171",
+      "version_code": "ih",
+      "version_label": "Introduced in House",
+      "source_url": "https://www.govinfo.gov/content/pkg/BILLS-118hr171ih/html/BILLS-118hr171ih.htm",
+      "details_url": "https://www.govinfo.gov/app/details/BILLS-118hr171ih",
+      "dynamic": true
+    }
+  ],
+  "schema_version": "22.0"
+}

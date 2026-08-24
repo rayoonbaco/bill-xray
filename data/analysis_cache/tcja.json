@@ -1,0 +1,13 @@
+{
+  "schema_version": "21.1",
+  "bill_id": "tcja",
+  "cached_at": "2026-08-24T17:58:03.260657+00:00",
+  "source_sha256": "c53404bb39fc3761c651b32d806321bcfe8d49d526a670c088b991bb70ccd5c2",
+  "analysis_status": "verified",
+  "red_team_status": "pass",
+  "citation_audit_status": "pass",
+  "challenge_status": "pass",
+  "public_claims": 14,
+  "elapsed_seconds": 13.891,
+  "public_analysis_version": "30.1-fiscal-object-provenance"
+}

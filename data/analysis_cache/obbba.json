@@ -1,0 +1,13 @@
+{
+  "schema_version": "21.1",
+  "bill_id": "obbba",
+  "cached_at": "2026-08-23T00:02:34.773909+00:00",
+  "source_sha256": "3b1cc848a554435bfe9cd70f98f5c31b29c04106fd6bf7e9776efd95b2c2f231",
+  "analysis_status": "verified",
+  "red_team_status": "pass",
+  "citation_audit_status": "pass",
+  "challenge_status": "pass",
+  "public_claims": 15,
+  "elapsed_seconds": 239.969,
+  "public_analysis_version": "30.1-fiscal-object-provenance"
+}

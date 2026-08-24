@@ -1,0 +1,17 @@
+{
+  "schema_version": "27.0",
+  "challenge_version": "27.0-hostile-context-prosecutor",
+  "bill_id": "aca",
+  "status": "pass",
+  "score": 1.0,
+  "blocker_count": 0,
+  "important_count": 0,
+  "acceptable_count": 0,
+  "findings": [],
+  "checks": {
+    "no_context_blockers": true,
+    "no_generic_front_page_explanations": true,
+    "same_proposition_political_lenses": true,
+    "substantive_scrutiny_reasons": true
+  }
+}

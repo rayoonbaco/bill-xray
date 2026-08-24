@@ -1,0 +1,47 @@
+{
+  "schema_version": "2.0",
+  "policy": "Official legislative text is supplied locally. Network retrieval is intentionally outside the ingestion path.",
+  "bills": [
+    {
+      "bill_id": "aca",
+      "official_identifier": "H.R. 3590, 111th Congress",
+      "law_number": "Public Law 111-148",
+      "version": "Public Law 111-148 / Statute at Large as enacted",
+      "local_filename": "aca.txt",
+      "source_url": "https://www.govinfo.gov/content/pkg/PLAW-111publ148/html/PLAW-111publ148.htm"
+    },
+    {
+      "bill_id": "ira",
+      "official_identifier": "H.R. 5376, 117th Congress",
+      "law_number": "Public Law 117-169",
+      "version": "Public Law 117-169 / Statute at Large as enacted",
+      "local_filename": "ira.txt",
+      "source_url": "https://www.govinfo.gov/content/pkg/PLAW-117publ169/html/PLAW-117publ169.htm"
+    },
+    {
+      "bill_id": "tcja",
+      "official_identifier": "H.R. 1, 115th Congress",
+      "law_number": "Public Law 115-97",
+      "version": "Public Law 115-97 / Statute at Large as enacted",
+      "local_filename": "tcja.txt",
+      "source_url": "https://www.govinfo.gov/content/pkg/PLAW-115publ97/html/PLAW-115publ97.htm"
+    },
+    {
+      "bill_id": "obbba",
+      "official_identifier": "H.R. 1, 119th Congress",
+      "law_number": "Public Law 119-21",
+      "version": "Public Law 119-21 / Statute at Large as enacted",
+      "local_filename": "obbba.txt",
+      "source_url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm"
+    },
+    {
+      "bill_id": "gpo-118hr171ih",
+      "official_identifier": "H.R. 171, 118th Congress",
+      "law_number": "",
+      "version": "Introduced in House",
+      "local_filename": "gpo-118hr171ih.txt",
+      "source_url": "https://www.govinfo.gov/content/pkg/BILLS-118hr171ih/html/BILLS-118hr171ih.htm",
+      "package_id": "BILLS-118hr171ih"
+    }
+  ]
+}

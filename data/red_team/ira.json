@@ -1,0 +1,26 @@
+{
+  "schema_version": "18.0",
+  "red_team_version": "30.1-fiscal-object-provenance",
+  "bill_id": "ira",
+  "status": "pass_with_warnings",
+  "score": 0.95,
+  "critical_count": 0,
+  "warning_count": 1,
+  "findings": [
+    {
+      "severity": "warning",
+      "code": "PUBLIC_LEGALESE",
+      "message": "A front-page claim is still too close to source-code legal language for the Kitchen Table Test.",
+      "panel": "left_right_text",
+      "anchor_id": "bxr-ira-L14693-L14756-095474a9ebc621d3"
+    }
+  ],
+  "checks": {
+    "same_anchor_left_right_text": true,
+    "advocacy_classification_intact": true,
+    "money_selection_material": true,
+    "barrel_independent_signal": true,
+    "political_language_contained": true,
+    "kitchen_table_language": false
+  }
+}

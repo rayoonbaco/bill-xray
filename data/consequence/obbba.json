@@ -1,0 +1,23 @@
+{
+  "schema_version": "30.0",
+  "bill_id": "obbba",
+  "generated_at": "2026-08-24T21:44:28.865422+00:00",
+  "consequence_confidence": 0.56,
+  "published_claims": 15,
+  "signals": {
+    "direct_money_findings": 0,
+    "high_scrutiny_candidates": 2,
+    "external_evidence_strength": 0.55
+  },
+  "reasons": [
+    "CBO official cost-estimate context found",
+    "USAspending related award activity found",
+    "2 high-scrutiny statutory candidates available"
+  ],
+  "guardrail": "This score measures consequence-evidence coverage, not corruption, partisan intent, fraud, or policy quality.",
+  "evidence_lanes": {
+    "statute": "What Congress legally wrote",
+    "cbo_jct": "Expected fiscal consequence where official estimates are available",
+    "usaspending": "Related implementation spending activity; not causal attribution"
+  }
+}

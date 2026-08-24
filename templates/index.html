@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- Pass 32: curated bipartisan museum; public search intentionally removed. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bill X-Ray</title><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/style.css?v=31.6">
+</head>
+<body class="page-home pass29-home">
+<main class="wrap home-wrap pass291-wrap pass291-home">
+  <section class="hero pass291-hero">
+    <div class="eyebrow">SOURCE-FIRST LEGISLATIVE INTELLIGENCE</div>
+    <div class="pass291-hero-grid">
+      <div>
+        <h1>BILL X-RAY</h1>
+        <h2>Did you read the bill? We did.</h2>
+      </div>
+      <div class="hero-promise pass291-promise">
+        <strong>Four major laws. One evidentiary standard.</strong>
+        <p>Bill X-Ray reads the official law, explains it in normal English, follows the money and power, surfaces provisions worth a closer look, challenges its own conclusions, and links every published factual claim back to the source.</p>
+      </div>
+    </div>
+    <div class="trust pass291-trust"><span>No citation, no claim.</span><span>Plain English first.</span><span>Same rubric, every party.</span><span>Context challenged.</span></div>
+  </section>
+
+  <section class="museum-intro">
+    <div>
+      <span class="eyebrow">CURATED PUBLIC EXHIBITS</span>
+      <h3>Choose a law to X-Ray</h3>
+    </div>
+    <p>Two Democratic-led enactments and two Republican-led enactments. Each exhibit must clear the same source, citation, political-bias, and hostile-context gates before Bill X-Ray will publish it.</p>
+  </section>
+
+  <section class="showcase pass291-showcase">
+    <div class="showcase-grid pass291-showcase-grid">
+      {% for bill in bills %}
+      {% set bs = build_statuses.get(bill.id, {}) %}
+      <article class="showcase-card pass291-showcase-card" data-showcase-id="{{bill.id}}">
+        <div class="showcase-status">{% if bs.get('state') == 'verified' %}VERIFIED · INSTANT{% elif bs.get('state') == 'hold' %}EXHIBIT HELD FOR REVIEW{% else %}EXHIBIT NOT PREBUILT{% endif %}</div>
+        <div class="exhibit-context">{{bill.get('exhibit_context', '')}}</div>
+        <h3>{{bill.short_title}}</h3>
+        <p>{{bill.year}} · {{bill.category}}</p>
+        <div class="showcase-promise"><b>See the dissection:</b> what changed, where the money goes, who gains or pays, what deserves scrutiny, the strongest Left and Right readings, and the exact statutory evidence underneath it.</div>
+        {% if bs.get('state') == 'verified' %}
+          <a class="card-action showcase-action" href="/bill/{{bill.id}}">View completed X-Ray →</a>
+          <span class="build-status-line">Opens instantly. No live rebuild.</span>
+        {% elif bs.get('state') == 'hold' %}
+          <a class="card-action showcase-action hold-action" href="/bill/{{bill.id}}">Review hold →</a>
+          <span class="build-status-line">This exhibit failed a release gate and remains unpublished.</span>
+        {% else %}
+          <span class="card-action showcase-action exhibit-offline" aria-disabled="true">Prebuild required before launch</span>
+          <span class="build-status-line">Run PREBUILD_SHOWCASES.bat before public deployment.</span>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+</body></html>

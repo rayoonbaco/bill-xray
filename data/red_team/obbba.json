@@ -1,0 +1,18 @@
+{
+  "schema_version": "18.0",
+  "red_team_version": "30.1-fiscal-object-provenance",
+  "bill_id": "obbba",
+  "status": "pass",
+  "score": 1.0,
+  "critical_count": 0,
+  "warning_count": 0,
+  "findings": [],
+  "checks": {
+    "same_anchor_left_right_text": true,
+    "advocacy_classification_intact": true,
+    "money_selection_material": true,
+    "barrel_independent_signal": true,
+    "political_language_contained": true,
+    "kitchen_table_language": true
+  }
+}
